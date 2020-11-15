@@ -1,0 +1,21 @@
+page-msmasuk {
+
+  ion-content {
+
+    background: none transparent !important;
+
+    div.scroll-content {
+      overflow-y: hidden;
+    }
+
+  }
+
+  lottie-animation-view div {
+
+    width: 100% !important;
+    height: 100% !important;
+    margin-top: 50%;
+
+  }
+
+}

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="tertiary">
+    <ion-title icon-left>
+      <ion-icon name="ios-bulb"></ion-icon>
+      {{ value.valAbout.title | uppercase }}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentActionSheet()">
+        <ion-icon name="md-options"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list inset *ngIf="iotDevices">
+    <button ion-item *ngFor="let iot of iotDevices" (click)="goToDetailIoT(iot)">
+      <ngx-qrcode item-start
+            [qrc-element-type]="elementType"
+            [qrc-value] = "iot.token"
+            qrc-errorCorrectionLevel = "L">
+      </ngx-qrcode>
+      <h2>SN : {{ iot.SN }}</h2>
+      <p>{{ iot.description }}</p>
+
+      <button ion-button icon-only clear color="primary" item-end *ngIf="iot.available.toLowerCase() == 'no'">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </button>
+
+      <button ion-button icon-only clear color="secondary" item-end *ngIf="iot.available.toLowerCase() == 'yes'">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </button>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,30 @@
+{
+    "status":200,
+    "url":"http://kontrolcerdas.com/ztiram/api/login",
+    "headers":{
+        "x-android-sent-millis":"1534164035284",
+        "x-android-received-millis":"1534164035843",
+        "vary":"Accept-Encoding",
+        "cache-control":"no-cache, private",
+        "transfer-encoding":"chunked",
+        "content-type":"application/json",
+        "server":"Apache","date":"Mon, 13 Aug 2018 12:40:36 GMT",
+        "x-android-response-source":"NETWORK 200",
+        "x-ratelimit-remaining":"59",
+        "x-ratelimit-limit":"60",
+        "set-cookie":"laravel_session=naQUO35r9rrkr9LDvKewEJhCZHjFcMEqX43LcT6f;expires=Mon, 13-Aug-2018 14:40:36 GMT; Max-Age=7200; path=/; httponly"
+    },
+    "data":"{
+        \"msg\":\"successfully login\",
+        \"user\":{
+            \"id\":3,
+            \"name\":\"fulan\",
+            \"email\":\"14102065@st3telkom.ac.id\",
+            \"user_type\":\"user\",
+            \"account_status\":\"aktif\",
+            \"last_login\":null,
+            \"photo\":null
+        },
+        \"token\":\"hWcNgsbnHzuWptn4DryqlKoLnAI47AvFqKcU1RgSsxBsjC8Ha5KktlkTa22zAkQH2hKUiIsrLpmgNyMo2YGMolhwGzt3iRarzbzL6wwd6ZjQOAysjcQQyoSACleUbPimkVZTVDuxwztiQuFWyEsGrg7zH41c4HnU4IJWeP3LUoVXaAsDoBNbMS646iz2\"
+    }"
+}

@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-list no-margin no-lines>
+      <button ion-item color="danger">
+        <ion-avatar item-start>
+          <img [src]="imgPath">
+        </ion-avatar>
+        <h2>{{ nama | uppercase }}</h2>
+        <p><span class="animated infinite rollIn delay-5s slower">{{ status }}</span></p>
+      </button>
+    </ion-list>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openEditProfile()">
+        <ion-icon name="md-create"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="refreshData($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list inset>
+    <!-- <ion-list-header>Follow us on Twitter</ion-list-header> -->
+    <button ion-item (click)="changePasswordAlert()">
+      <ion-icon name="md-key" item-start></ion-icon>
+      <h2>{{ value.valContact.changePassword }}</h2>
+      <small>{{ value.valContact.changePasswordSub }}</small>
+    </button>
+
+    <button ion-item (click)="changeEmailAlert()">
+      <ion-icon name="md-mail" item-start></ion-icon>
+      <h2>{{ value.valContact.changeEmail }}</h2>
+      <small>
+        {{ value.valContact.changeEmailSub }}
+      </small>
+      <ion-badge color="secondary" item-end>
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-badge>
+    </button>
+
+    <button ion-item (click)="openAboutApp()">
+      <ion-icon name="help-buoy" item-start></ion-icon>
+      <h2>{{ value.valContact.aboutApp }}</h2>
+    </button>
+
+    <button ion-item (click)="logOutAction()">
+      <ion-icon name="log-out" item-start></ion-icon>
+      <h2>{{ value.valContact.logoutApp }}</h2>
+    </button>
+
+  </ion-list>
+</ion-content>

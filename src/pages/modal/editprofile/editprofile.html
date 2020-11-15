@@ -1,0 +1,65 @@
+<!--
+  Generated template for the EditprofilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>{{ value.valEditProfile.title | uppercase }}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item color="light" class="bg-editprofile">
+      <ion-avatar text-center>
+        <ion-img [src]="imgpath" class="img-editprofile">
+        </ion-img>
+        <button ion-button mini icon-only round (click)="showActionSheet()">
+          <ion-icon name="image"></ion-icon>
+        </button>
+      </ion-avatar>
+    </ion-item>
+  </ion-list>
+
+  <ion-list inset>
+
+    <ion-item>
+      <ion-label stacked>{{ value.valContact.labelNamaUser }}</ion-label>
+      <ion-input type="text" [placeholder]="value.valContact.labelNamaUser + '...'" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>{{ value.valContact.labelStatusUser }}</ion-label>
+      <ion-input type="text" [placeholder]="value.valContact.labelStatusUser + '...'" [(ngModel)]="status"></ion-input>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar padding>
+    <ion-buttons left>
+      <button ion-button icon-start color="danger" (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+        {{ value.valButtons.cancel | uppercase }}
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+        <button ion-button icon-start color="primary" (click)="closeModalSave()">
+          <ion-icon name="checkmark"></ion-icon>
+          {{ value.valButtons.save | uppercase }}
+        </button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,83 @@
+<!--
+  Generated template for the LahanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-toolbar>
+      <ion-title>{{ proyek.name | uppercase }}</ion-title>
+    </ion-toolbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-fab bottom right *ngIf="segmen == 'lahan'" (click)="testAlert()">
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <div>
+    <ion-segment [(ngModel)]="segmen" (ionChange)="onSegmentChange()">
+      <ion-segment-button value="detail" color="primary">
+        {{ value.valLahan.labelSegment.detail | uppercase }}
+      </ion-segment-button>
+      <ion-segment-button value="lahan" color="primary">
+        {{ value.valLahan.labelSegment.lahan | uppercase }}
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="segmen">
+    <!-- Detai Monitoring Terbaru -->
+    <div *ngSwitchCase="'detail'">
+      <div *ngIf="allGauge">
+        <ion-card *ngFor="let gauge of allGauge">
+          <ion-card-header no-padding>
+              <div ion-item>
+                {{ gauge.nama | uppercase }}
+                <button ion-button icon-only clear item-end color="dark">
+                    <ion-icon name="more"></ion-icon>
+                </button>
+              </div>
+          </ion-card-header>
+
+          <ion-card-content text-center>
+            <ngx-gauge [value]="gauge.value"
+                      [size]="gauge.label.size"
+                      [max]= "gauge.max"
+                      [append]="gauge.label.unit"
+                      [type]="gauge.label.type"
+                      [thick]="gauge.label.thick"
+                      [cap]="gauge.label.cap"
+                      [thresholds]="gauge.label.thresholds">
+            </ngx-gauge>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'lahan'">
+      <ion-list *ngIf="allItems.project.landfields">
+        <button ion-item *ngFor="let lahan of allItems.project.landfields">
+          <!-- <h1 ion-text text-center color="tertiary" item-start>
+            {{ lahan.id }}
+          </h1> -->
+          <h2 ion-text color="tertiary">{{ value.valLahan.labelLahan + ' ' + lahan.id | uppercase }}</h2>
+          <p ion-text color="dark">{{ value.valLahan.labelPlan + ' ' + lahan.open_plan_at + ', ' + value.valLahan.labelBuglog + ' ' + lahan.qty_buglog }}</p>
+
+          <ion-buttons item-end>
+            <button ion-button clear color="warning" icon-left (click)="testAlert()">
+              <ion-icon name="leaf"></ion-icon>
+              {{ value.valLahan.labelPanen }}
+            </button>
+          </ion-buttons>
+
+        </button>
+      </ion-list>
+    </div>
+  </div>
+
+</ion-content>

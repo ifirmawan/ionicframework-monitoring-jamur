@@ -1,0 +1,52 @@
+<!--
+  Generated template for the SetiottoprojectPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="tertiary">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="refreshData($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list inset *ngIf="projects">
+
+    <button ion-item *ngFor="let lahan of items" (click)="setProject(lahan.id)">
+      <h1 item-start ion-text color="tertiary">
+        {{ lahan.name.charAt(0) | uppercase }}
+      </h1>
+      <h2>{{ lahan.name }}</h2>
+      <p>{{ value.valHome.labelKetLahan + ' ' + lahan.amount_landfields + ', ' + value.valHome.labelKetBaglog + ' ' + lahan.amount_buglog }}</p>
+    </button>
+
+    <!-- <button ion-item *ngFor="let item of items, let i = index" (click)="goToDetail(item)">
+      <h1 item-start ion-text [color]="getColorSuhu(item.suhu)">{{ item.suhu }}<sup>o</sup></h1>
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.page }}</p>
+      <ion-icon [name]="getKelembabanIcon(item.suhu)" item-end [color]="getKelembabanColor(item.suhu)" margin-right="10" [ngClass]="setKelembabanClass(item.suhu)"></ion-icon>
+      <ion-icon name='md-sunny' item-end [color]="getColorSunny(item.suhu)"></ion-icon>
+    </button> -->
+
+  </ion-list>
+
+</ion-content>

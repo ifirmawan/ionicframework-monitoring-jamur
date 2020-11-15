@@ -1,0 +1,5 @@
+<ion-tabs [color]="warna" #myTabs selectedIndex="0" (ionChange)="getColor()">
+  <ion-tab [root]="tab1Root" tabTitle="{{ value.valTabs.btnProyek }}" tabIcon="ios-leaf"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="{{ value.valTabs.btnAbout }}" tabIcon="ios-information-circle"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="{{ value.valTabs.btnContact }}" tabIcon="ios-contacts"></ion-tab>
+</ion-tabs>

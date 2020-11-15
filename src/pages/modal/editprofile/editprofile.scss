@@ -1,0 +1,34 @@
+page-editprofile {
+
+  ion-item.bg-editprofile {
+
+    background-image: url('../assets/imgs/bgprofile.jpg');
+    background-position: center;
+    border-bottom: 10px inset rgba(255, 255, 255, 0.5);
+
+    button {
+      position: absolute;
+      height: 4.2rem;
+      top: 7em;
+      right: 8em;
+    }
+
+  }
+
+  ion-img.img-editprofile {
+
+    width: 125px !important;
+    height: 125px !important;
+    display: inline-block;
+    margin: 2%;
+    border: 3px solid rgba(255, 255, 255, 0.404);
+
+    img {
+
+      width: 100%;
+      height: auto;
+
+    }
+
+  }
+}
